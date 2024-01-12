@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>form2.html</h2>
+	<!-- form2-param 이라는 주소로 p1에 입력된 값을 post 방식으로 전송 -->
+	<form action="/form2-param" method = "post">
+	p1 : <input type="text" name="p1"><br>
+	<input type="submit" value="전송">
+	</form>
+</body>
+</html>

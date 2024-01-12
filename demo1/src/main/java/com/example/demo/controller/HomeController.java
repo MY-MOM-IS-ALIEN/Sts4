@@ -1,9 +1,13 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.demo.DTO.DemoDTO;
 
 // @Controller : 해당 클래스를 컨트롤러 클래스로 스프링빈에 등록
 // 스프링빈 : 스프링이 관리해주는 자바 객체
@@ -50,5 +54,40 @@ public class HomeController {
 		System.out.println("p2 = " + p2);
 		return "index";
 	}
+	// 
+	@GetMapping("/model1")
+	public String model1(Model model) {
+		String str1 = "오늘은 꿈요일";
+		// 화면에 가져갈 데이터를 담음
+		// s1 : 변수명 , str1 : 데이터
+		model.addAttribute("s1",str1);
+		return "model1";
+				}
+	@GetMapping("/form2")
+	public String form2() {
+		return "form2";
+	}
 	
+	// 각 메서드마다 담아갈것이 있다면 무조건 매개변수에 model을 써줘야한다.
+	@PostMapping("/form2-param")
+	public String form2param(@RequestParam("p1") String p1 , Model model2) {
+//		String sum = p1;
+		model2.addAttribute("m1",p1);
+		return "model2";
+	}
+	
+	@GetMapping("/form3")
+	public String form3() {
+		return "form3";
+	}
+	
+	@PostMapping("/form3-param")
+//	public String form3param (@RequestParam("name")String name,
+//							@RequestParam("age")int age) {
+	public String form3param(@ModelAttribute DemoDTO demoDTO , Model model) {
+//		System.out.println("name = " + name + "age = " + age);
+		System.out.println(demoDTO);
+		model.addAttribute("demo", demoDTO);
+		return "model3";
+	}
 }
