@@ -19,7 +19,6 @@ INDEX VERSION 1.134+C:\development\springboot_sts\.metadata\.plugins\org.eclipse
 4125473652.index
 2540827465.index
 2494507702.index
-1500549298.index
 3529594798.index
 956040146.index
 298060162.index

@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -63,6 +66,7 @@ public class HomeController {
 		model.addAttribute("s1",str1);
 		return "model1";
 				}
+	
 	@GetMapping("/form2")
 	public String form2() {
 		return "form2";
@@ -89,5 +93,17 @@ public class HomeController {
 		System.out.println(demoDTO);
 		model.addAttribute("demo", demoDTO);
 		return "model3";
+	}
+	@GetMapping("/model4")
+	public String model4(Model model) {
+		List<DemoDTO> list = new ArrayList<>();
+		for(int i = 1; i<=10; i++) {
+			DemoDTO demoDTO = new DemoDTO();
+			demoDTO.setName("name" + i);
+			demoDTO.setAge(i);
+			list.add(demoDTO);
+		}
+		model.addAttribute("list",list);
+		return "model4";
 	}
 }
