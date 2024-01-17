@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.student.Service.StudentService;
 import com.example.student.dto.StudentDTO;
+import com.example.student.service.StudentService;
 
 @Controller
 public class StudentController {

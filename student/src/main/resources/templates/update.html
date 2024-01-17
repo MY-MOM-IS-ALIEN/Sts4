@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>update.html</h2>
+	<table>
+		<tr>
+			<td>번호</td>
+			<td th:text="${book.id}">
+		</tr>
+		<tr>
+			<td>제목</td>
+			<td th:text="${book.bookName}"></td>
+		</tr>
+		<tr>
+			<td>저자</td>
+			<td th:text="${book.bookAuthor}"></td>
+		</tr>
+		<tr>
+			<td>출판사</td>
+			<td th:text="${book.bookPublisher}"></td>
+		</tr>
+		<tr>
+			<td>가격</td>
+			<td th:text="${book.bookPrice}"></td>
+		</tr>
+	</table>
+	<a href="/list">목록으로 돌아가기</a>
+</body>
+</html>

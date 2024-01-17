@@ -1,4 +1,4 @@
-package com.example.student.Service;
+package com.example.student.service;
 
 import java.util.List;
 
@@ -21,7 +21,6 @@ public class StudentService {
 	}
 
 	public List<StudentDTO> findAll() {
-		
 		return studentRepository.findAll();
 	}
 	
