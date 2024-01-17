@@ -27,7 +27,8 @@ public class BookController {
 	public String save(@ModelAttribute BookDTO bookDTO) {
 		System.out.println("BookDTO = " + bookDTO);
 		bookService.save(bookDTO);
-		return "index";
+//		redirect : 컨트롤러의 메서드에서 다른 메서드의 주소를 요청할 때 사용
+		return "redirect:/list";
 	}
 	
 	@GetMapping("/list")
@@ -49,5 +50,24 @@ public class BookController {
 		return "detail";
 	}
 	
+	@GetMapping("/book/delete/{id}")
+	public String delete(@PathVariable("id")Long id) {
+		bookService.delete(id);
+		// 삭제가 끝나면 목록을 출력
+		return "redirect:/list";
+	}
 	
+	@GetMapping("/book/update/{id}")
+	public String update(@PathVariable("id") Long id,Model model) {
+		BookDTO bookDTO = bookService.findById(id);
+		model.addAttribute("book",bookDTO);
+		return "update";
+	}
+	
+	@PostMapping("/update")
+	public String update(BookDTO bookDTO) {
+		System.out.println(bookDTO);
+		bookService.update(bookDTO);
+		return "redirect:/list";
+	}
 }
